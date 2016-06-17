@@ -1,0 +1,105 @@
+<div class="container">
+
+  <div class="page-header">
+    <h1>Search Weather By City</h1>
+  </div>
+
+  <!-- Error message for any location -->
+  <div class="alert alert-danger" role="alert" ng-if="isErrorForAnyLocation">
+    <strong>{{ errorMessageForAnyLocation }}</strong>
+  </div>
+
+  <!-- Form for searching by city -->
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Type in a city..." ng-model="location">
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-warning" ng-click="getWeatherForAnyLocation()">Get Weather</button>
+    </span>
+  </div>
+
+  <!-- Heading for weather forecast for any location -->
+  <div class="page-header" ng-if="isWeatherForAnyLocation">
+    <h3>Here is your weather forecast</h3>
+  </div>
+
+  <!-- Loading message for any location -->
+  <h2 class="text-center" ng-if="loadingForAnyLocation">Loading...</h2>
+
+  <!--  **
+        * 1.Step
+        * - Create a custom directive called weather-forecast
+        * - The custom directive should contain the weather
+        *   forecast html markup
+        * - The custom directive shoud take three attributes
+        *   1. location-name => String
+        *   2. weather => Object
+        *   3. weather-summery => Function
+        * - Use the custom directive instead of the markup below
+  * -->
+
+  <!-- Weather forecast for any location -->
+  <div class="panel panel-primary" ng-if="isWeatherForAnyLocation">
+    <div class="panel-heading">
+      <h3 class="panel-title">Weather Report for {{ weatherForecastForAnyLocation.name }}</h3>
+    </div>
+    <div class="panel-body">
+      <strong>Humidity:</strong> {{ weatherForecastForAnyLocation.main.humidity }}% |
+      <strong>Temperature:</strong> {{ weatherForecastForAnyLocation.main.temp }}° |
+      <strong>Wind:</strong> {{ weatherForecastForAnyLocation.wind.speed }}m/sec
+    </div>
+    <div class="panel-footer">
+      <strong>{{ weatherSummery(weatherForecastForAnyLocation.main.temp) }}</strong>
+    </div>
+  </div>
+
+  <!-- Heading for weather forecast for current location -->
+  <div class="page-header" ng-if="isWeatherForCurrentLocation">
+    <h3>Here is the weather forecast for your current location</h3>
+  </div>
+
+  <!-- Loading message for current location -->
+  <h2 class="text-center" ng-if="loadingForCurrentLocation">Loading...</h2>
+
+  <!--  **
+        * 1.Step
+        * - Create a custom directive called weather-forecast
+        * - The custom directive should contain the weather
+        *   forecast html markup
+        * - The custom directive shoud take three attributes
+        *   1. location-name => String
+        *   2. weather => Object
+        *   3. weather-summery => Function
+        * - Use the custom directive instead of the markup below
+  * -->
+
+  <!-- Weather forecast for current location -->
+  <div class="panel panel-primary" ng-if="isWeatherForCurrentLocation">
+    <div class="panel-heading">
+      <h3 class="panel-title">Weather Report for {{ weatherForecastForCurrentLocation.name }}</h3>
+    </div>
+    <div class="panel-body">
+      <strong>Humidity:</strong> {{ weatherForecastForCurrentLocation.main.humidity }}% |
+      <strong>Temperature:</strong> {{ weatherForecastForCurrentLocation.main.temp }}° |
+      <strong>Wind:</strong> {{ weatherForecastForCurrentLocation.wind.speed }}m/sec
+    </div>
+    <div class="panel-footer">
+      <strong>{{ weatherSummery(weatherForecastForCurrentLocation.main.temp) }}</strong>
+    </div>
+  </div>
+
+  <!--  **
+        * 2.Step
+        * - Create a custom directive called current-weather
+        * - The custom directive should contain the error message
+        * - The custom directive should use the custom
+        *   directive weather-forecast form step 1
+        * - The custom directive shoud not take any attributes
+        * - Use the custom directive instead of the markup below
+  * -->
+
+  <!-- Error message for current location -->
+  <div class="alert alert-danger" role="alert" ng-if="isErrorForCurrentLocation">
+    <strong>{{ errorMessageForCurrentLocation }}</strong>
+  </div>
+
+</div>

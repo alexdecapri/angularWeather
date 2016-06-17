@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="weatherApp">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>Weather App</title>
+  </head>
+  <body style="padding-top: 70px;">
+
+    <!-- Static navbar -->
+    <div ng-include="'./app/partials/nav.html'"></div>
+
+    <!-- Routing -->
+    <ui-view></ui-view>
+
+    <!-- jQuery -->
+    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- Angular Core Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <!-- Angular UI-Router -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+    <!-- Angular Module -->
+    <script src="./app/app.js"></script>
+    <!-- Angular Controller -->
+    <script src="./app/controllers/homeController.js"></script>
+    <script src="./app/controllers/aboutController.js"></script>
+    <script src="./app/controllers/weatherController.js"></script>
+    <!-- Angular Services -->
+    <script src="./app/services/weatherService.js"></script>
+    <script src="./app/services/locationService.js"></script>
+    <!-- Angular Directives -->
+    <script src="./app/directives/weatherForecast.js"></script>
+    <script src="./app/directives/currentWeather.js"></script>
+  </body>
+</html>

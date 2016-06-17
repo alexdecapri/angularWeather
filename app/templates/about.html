@@ -1,0 +1,63 @@
+<div class="container">
+
+  <div class="page-header">
+    <h1>About The Technologies We Were Using</h1>
+  </div>
+
+  <div class="list-group">
+    <a href="https://angularjs.org/" target="_blank" class="list-group-item"><strong>AngularJS 1</strong></a>
+    <a href="https://github.com/angular-ui/ui-router" target="_blank" class="list-group-item"><strong>AngularUI Router</strong></a>
+    <a href="https://ipinfo.io/" target="_blank" class="list-group-item"><strong>ipinfo</strong></a>
+    <a href="http://openweathermap.org/" target="_blank" class="list-group-item"><strong>OpenWeatherMap</strong></a>
+  </div>
+
+  <div class="page-header">
+    <h3>And here is again the weather forecast for your current location</h3>
+  </div>
+
+  <!-- Loading message for current location -->
+  <h2 class="text-center" ng-if="loadingForCurrentLocation">Loading...</h2>
+
+  <!--  **
+        * 1.Step
+        * - Create a custom directive called weather-forecast
+        * - The custom directive should contain the weather
+        *   forecast html markup
+        * - The custom directive shoud take three attributes
+        *   1. location-name => String
+        *   2. weather => Object
+        *   3. weather-summery => Function
+        * - Use the custom directive instead of the markup below
+  * -->
+
+  <!-- Weather forecast for current location -->
+  <div class="panel panel-primary" ng-if="isWeatherForCurrentLocation">
+    <div class="panel-heading">
+      <h3 class="panel-title">Weather Report for {{ weatherForecastForCurrentLocation.name }}</h3>
+    </div>
+    <div class="panel-body">
+      <strong>Humidity:</strong> {{ weatherForecastForCurrentLocation.main.humidity }}% |
+      <strong>Temperature:</strong> {{ weatherForecastForCurrentLocation.main.temp }}° |
+      <strong>Wind:</strong> {{ weatherForecastForCurrentLocation.wind.speed }}m/sec
+    </div>
+    <div class="panel-footer">
+      <strong>{{ weatherSummery(weatherForecastForCurrentLocation.main.temp) }}</strong>
+    </div>
+  </div>
+
+  <!--  **
+        * 2.Step
+        * - Create a custom directive called current-weather
+        * - The custom directive should contain the error message
+        * - The custom directive should use the custom
+        *   directive weather-forecast form step 1
+        * - The custom directive shoud not take any attributes
+        * - Use the custom directive instead of the markup below
+  * -->
+
+  <!-- Error message for current location -->
+  <div class="alert alert-danger" role="alert" ng-if="isErrorForCurrentLocation">
+    <strong>{{ errorMessageForCurrentLocation }}</strong>
+  </div>
+
+</div>
