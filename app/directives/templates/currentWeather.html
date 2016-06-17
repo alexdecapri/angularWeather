@@ -1,3 +1,15 @@
-<p>
-  Render current-weather
-</p>
+<!-- Heading for weather forecast for current location -->
+<div class="page-header" ng-if="isWeatherForCurrentLocation">
+  <h3>Here is the weather forecast for your current location</h3>
+</div>
+
+<!-- Loading message for current location -->
+<h2 class="text-center" ng-if="loadingForCurrentLocation">Loading...</h2>
+
+<!-- Weather forecast for current location -->
+<weather-forecast location-name="{{ weatherForecastForCurrentLocation.name }}" weather="weatherForecastForCurrentLocation" weather-summery="weatherSummery(temp)" ng-if="isWeatherForCurrentLocation"></weather-forecast>
+
+<!-- Error message for current location -->
+<div class="alert alert-danger" role="alert" ng-if="isErrorForCurrentLocation">
+  <strong>{{ errorMessageForCurrentLocation }}</strong>
+</div>

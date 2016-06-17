@@ -6,29 +6,7 @@
     <p><a class="btn btn-primary btn-lg" ui-sref="weather" role="button">Check it out</a></p>
   </div>
 
-  <div class="page-header">
-    <h3>Here is already the weather forecast for your current location</h3>
-  </div>
-
-  <!-- Loading message for current location -->
-  <h2 class="text-center" ng-if="loadingForCurrentLocation">Loading...</h2>
-
   <!-- Weather forecast for current location -->
-  <weather-forecast location-name="{{ weatherForecastForCurrentLocation.name }}" weather="weatherForecastForCurrentLocation" weather-summery="weatherSummery(temp)" ng-if="isWeatherForCurrentLocation"></weather-forecast>
-
-  <!--  **
-        * 2.Step
-        * - Create a custom directive called current-weather
-        * - The custom directive should contain the error message
-        * - The custom directive should use the custom
-        *   directive weather-forecast form step 1
-        * - The custom directive shoud not take any attributes
-        * - Use the custom directive instead of the markup below
-  * -->
-
-  <!-- Error message for current location -->
-  <div class="alert alert-danger" role="alert" ng-if="isErrorForCurrentLocation">
-    <strong>{{ errorMessageForCurrentLocation }}</strong>
-  </div>
+  <current-weather-forecast></current-weather-forecast>
 
 </div>
