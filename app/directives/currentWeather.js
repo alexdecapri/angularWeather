@@ -4,6 +4,7 @@ app.directive('currentWeatherForecast', function() {
     restrict: 'E',
     templateUrl: 'app/directives/templates/currentWeather.html',
     replace: false,
+    scope: {},
     controller: function($scope, locationService, weatherService) {
 
       init();
