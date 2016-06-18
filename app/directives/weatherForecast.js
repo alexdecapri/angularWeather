@@ -1,5 +1,13 @@
 app.directive('weatherForecast', function() {
 
-  return {};
+  return {
+    restrict: 'E',
+    templateUrl: './app/directives/templates/weatherForecast.html',
+    scope: {
+      locationName: '@',
+      weather: '=',
+      weatherSummery: '&'
+    }
+  };
 
 });
