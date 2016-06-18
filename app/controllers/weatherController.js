@@ -20,24 +20,9 @@ app.controller('weatherCtrl', function($scope, locationService, weatherService) 
 
   function init() {
     updatePropsForAnyLocation(false, false, false, {}, '', '');
-    updatePropsForCurrentLocation(false, false, false, {}, '');
+    // updatePropsForCurrentLocation(false, false, false, {}, '');
     $scope.weatherSummery = weatherService.weatherSummery;
-    getWeatherForCurrentLocation();
-  }
-
-  function getWeatherForCurrentLocation() {
-    $scope.loadingForCurrentLocation = true;
-
-    locationService.getLocation()
-      .then(function(city) {
-        return weatherService.getWeather(city);
-      })
-      .then(function(weatherForecastForCurrentLocation) {
-        updatePropsForCurrentLocation(false, false, true, weatherForecastForCurrentLocation, '');
-      })
-      .catch(function(err) {
-        updatePropsForCurrentLocation(false, true, false, {}, err.message);
-      });
+    // getWeatherForCurrentLocation();
   }
 
   function updatePropsForAnyLocation(loadingForAnyLocation, isErrorForAnyLocation, isWeatherForAnyLocation, weatherForecastForAnyLocation, errorMessageForAnyLocation, location) {
@@ -49,12 +34,5 @@ app.controller('weatherCtrl', function($scope, locationService, weatherService) 
     $scope.location = location;
   }
 
-  function updatePropsForCurrentLocation(loadingForCurrentLocation, isErrorForCurrentLocation, isWeatherForCurrentLocation, weatherForecastForCurrentLocation, errorMessageForCurrentLocation) {
-    $scope.loadingForCurrentLocation = loadingForCurrentLocation;
-    $scope.isErrorForCurrentLocation = isErrorForCurrentLocation;
-    $scope.isWeatherForCurrentLocation = isWeatherForCurrentLocation;
-    $scope.weatherForecastForCurrentLocation = weatherForecastForCurrentLocation;
-    $scope.errorMessageForCurrentLocation = errorMessageForCurrentLocation;
-  }
-
+  
 });
