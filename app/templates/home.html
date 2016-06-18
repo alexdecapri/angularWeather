@@ -13,32 +13,8 @@
   <!-- Loading message for current location -->
   <h2 class="text-center" ng-if="loadingForCurrentLocation">Loading...</h2>
 
-  <!--  **
-        * 1.Step
-        * - Create a custom directive called weather-forecast
-        * - The custom directive should contain the weather
-        *   forecast html markup
-        * - The custom directive shoud take three attributes
-        *   1. location-name => String
-        *   2. weather => Object
-        *   3. weather-summery => Function
-        * - Use the custom directive instead of the markup below
-  * -->
+  <weather-forecast location-name="{{ weatherForecastForCurrentLocation.name }}" weather="weatherForecastForCurrentLocation" weather-summer="weatherSummery(temp)"></weather-forecast>
 
-  <!-- Weather forecast for current location -->
-  <div class="panel panel-primary" ng-if="isWeatherForCurrentLocation">
-    <div class="panel-heading">
-      <h3 class="panel-title">Weather Report for {{ weatherForecastForCurrentLocation.name }}</h3>
-    </div>
-    <div class="panel-body">
-      <strong>Humidity:</strong> {{ weatherForecastForCurrentLocation.main.humidity }}% |
-      <strong>Temperature:</strong> {{ weatherForecastForCurrentLocation.main.temp }}° |
-      <strong>Wind:</strong> {{ weatherForecastForCurrentLocation.wind.speed }}m/sec
-    </div>
-    <div class="panel-footer">
-      <strong>{{ weatherSummery(weatherForecastForCurrentLocation.main.temp) }}</strong>
-    </div>
-  </div>
 
   <!--  **
         * 2.Step
