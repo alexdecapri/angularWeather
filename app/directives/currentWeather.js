@@ -1,7 +1,7 @@
 app.directive('currentWeatherForecast', function() {
 
   return {
-    restrict: 'E'.
+    restrict: 'E',
     templateUrl: './app/directives/templates/currentWeather.html',
     scope: {},
     controller: function($scope, locationService, weatherService) {
@@ -36,6 +36,6 @@ app.directive('currentWeatherForecast', function() {
         $scope.errorMessageForCurrentLocation = errorMessageForCurrentLocation;
       }
     }
-  }
+  };
 
 });

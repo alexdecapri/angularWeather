@@ -34,5 +34,5 @@ app.controller('weatherCtrl', function($scope, locationService, weatherService) 
     $scope.location = location;
   }
 
-  
+
 });
